@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+    <title>Car Price Predction</title>
+    <head>
+        <h1 style="text-align:center;">Car Price Prediction</h1>
+        <p style="text-align:center;"><i>A web app to predict selling price of used cars</i></p>
+        <style>
+            * {
+                  box-sizing: border-box;
+                }
+            .row:after {
+                      content: "";
+                      display: table;
+                      clear: both;
+                        }
+			form {
+					/* Center the form on the page */
+					margin: 0 auto;
+					width:1000px;
+					/* Form outline */
+					padding: 1em;
+					
+				}
+			button {
+					background-color: #555555;
+					color:white;
+					}
+        </style>
+    </head>
+    <body>
+        <div class="row">
+            <form action="{{ url_for('predict')}}" method="post">
+			<table>
+			<tr>
+			<td align="left"><h3>Car Name</h3></td>
+			<td align="left"><input  name="Car Name"></h3></td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Model year</h3></td>
+			<td align="left"><input  name="Year" required="required"></h3></td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Present Price</h3></td>
+			<td align="left"><input  name="Present_Price" required="required"></h3></td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Kilometers Drived</h3></td>
+			<td align="left"><input  name="Kms_Driven" required="required"></h3></td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Number of Previous Owners</h3></td>
+			<td align="left"><input  name="Owner" required="required"></h3></td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Fuel Type</h3></td>
+			<td align="left"><h3>
+            <input list="Fuel Type" name="Fuel_Type" required="required">
+			<datalist id="Fuel Type">
+			<option value="Diesel">
+			<option value="Petrol">
+			<option value="CNG">
+			</datalist></h3>
+			</td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Seller Type</h3></td>
+			<td align="left"><h3>
+            <input list="Seller Type" name="Seller_Type" required="required" >
+			<datalist id="Seller Type">
+			<option value="Individual">
+			<option value="Dealer">
+			</datalist></h3>
+			</td>
+			</tr>
+			<tr>
+			<td align="left"><h3>Transmission Type</h3></td>
+			<td align="left"><h3>
+            <input list="Transmission" name="Transmission" required="required">
+			<datalist id="Transmission">
+			<option value="Manual">
+			<option value="Automatic">
+			</datalist></h3>
+			</td>
+			</tr>
+			<tr>
+			<td	align="center">
+            <button style="width: 300px;"  type="submit " >Calculate the Selling Price</button>
+			</td>
+			</tr>
+			<tr>
+			<td align="left">
+			<h3>{{ prediction_text }}</h3>
+			</td>
+			</tr>
+			</table>
+			</form>
+			
+        </div> 
+		
+        
+    </body>
+    
+</html>
